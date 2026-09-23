@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Page Not Found | Jumper Jim</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#65BC46">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    body { padding-bottom: 0; }
+    .lost {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 40px var(--gutter);
+      text-align: center;
+    }
+    .lost__inner { max-width: 560px; display: grid; justify-items: center; gap: 18px; }
+    .lost__mascot { width: min(200px, 50vw); }
+    .lost__title { font-size: clamp(2.2rem, 8vw, 3.4rem); }
+    .lost .btn-row { justify-content: center; }
+  </style>
+</head>
+<body>
+  <main class="lost halftone">
+    <div class="lost__inner">
+      <picture>
+        <source type="image/webp" srcset="/images/jumper-jim-mascot-240.webp 240w, /images/jumper-jim-mascot-360.webp 360w" sizes="200px">
+        <img class="lost__mascot" src="/images/jumper-jim-mascot-520.png" width="520" height="588"
+             alt="Jumper Jim, the green jump-starter mascot, grinning with his red and black clamps raised">
+      </picture>
+      <p class="kicker">Wrong turn!</p>
+      <h1 class="lost__title display">This page ran out of juice.</h1>
+      <p>The page you're looking for doesn't exist. If your battery is dead, we can still help.</p>
+      <div class="btn-row">
+        <a class="btn btn--call btn--lg" href="tel:+12092219788">Call (209) 221-9788</a>
+        <a class="btn btn--yellow btn--lg" href="/">Back to Home</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
