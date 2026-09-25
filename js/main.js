@@ -177,7 +177,7 @@
   function buildMessage() {
     var vehicle = [val("vehicle_year"), val("vehicle_make"), val("vehicle_model")].filter(Boolean).join(" ");
     var lines = [
-      "JUMP START REQUEST (calljumperjim.com)",
+      "JUMP START REQUEST (jumperjim.com)",
       "Name: " + val("name"),
       "Phone: " + val("phone"),
       "Location: " + val("location"),

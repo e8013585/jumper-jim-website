@@ -1,7 +1,8 @@
 # Jumper Jim website
 
 The one-page website for **Jumper Jim**, a mobile 12V jump-start service based in Tracy, California.
-Domain: https://www.calljumperjim.com/ (registered, not yet connected)
+Main domain: https://www.jumperjim.com/ (registered with Zoho, not yet connected)
+Second domain: calljumperjim.com (Porkbun), which only redirects to www.jumperjim.com
 Currently published at: https://e8013585.github.io/jumper-jim-website/
 
 It's a plain static site: HTML, CSS and a small JavaScript file. There's no build step, no framework and
@@ -54,18 +55,38 @@ The site is published by GitHub Pages from the `main` branch of
 [e8013585/jumper-jim-website](https://github.com/e8013585/jumper-jim-website). Every push to `main`
 goes live about a minute later.
 
-### Connecting calljumperjim.com
+### Domains
 
-1. At your domain registrar, add these DNS records:
-   - `A` records for `calljumperjim.com` (host `@`) pointing to `185.199.108.153`, `185.199.109.153`,
-     `185.199.110.153` and `185.199.111.153`
-   - a `CNAME` record for `www` pointing to `e8013585.github.io`
-2. In the GitHub repo, go to **Settings > Pages > Custom domain**, enter `www.calljumperjim.com` and save.
+- **www.jumperjim.com** is the one real home of the site. The canonical link, social preview image,
+  structured data, `robots.txt` and `sitemap.xml` all point there. `jumperjim.com` (without `www`)
+  redirects to it automatically once GitHub Pages is set up.
+- **calljumperjim.com** is a shortcut only. It permanently (301) redirects to
+  `https://www.jumperjim.com`, so search engines treat it as the same site rather than a duplicate.
+  It's never added to GitHub Pages and never listed in the site's code.
+
+### Connecting jumperjim.com (DNS at Zoho)
+
+jumperjim.com also carries your Zoho email. **Leave the existing `MX`, `TXT` (SPF / verification) and
+DKIM records alone**; only add or change the website records below.
+
+1. In Zoho's DNS manager for jumperjim.com, remove any existing `A` record for `@` or `CNAME`/`A`
+   record for `www` (for example Zoho's default parking page), then add:
+   - four `A` records, host `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - one `CNAME` record, host `www`, value `e8013585.github.io`
+2. In the GitHub repo, go to **Settings > Pages > Custom domain**, enter `www.jumperjim.com` and save.
    GitHub adds a `CNAME` file to the repo.
 3. Once the DNS check passes (minutes to a few hours), tick **Enforce HTTPS**.
+4. Optional but recommended: verify the domain under your GitHub account's
+   **Settings > Pages > Verified domains** (GitHub gives you a `TXT` record to add at Zoho). This stops
+   anyone else from pointing a GitHub site at your domain.
 
-The page's canonical link, social preview image, structured data, `robots.txt` and `sitemap.xml` already
-point to `https://www.calljumperjim.com/`.
+### Redirecting calljumperjim.com (Porkbun)
+
+1. In Porkbun, open **Details** for calljumperjim.com and find **URL Forwarding**.
+2. Add a forward to `https://www.jumperjim.com` with type **Permanent (301)**, **include path** turned
+   on, and the option to also forward `www.calljumperjim.com` (wildcard) turned on.
+3. Don't add GitHub Pages records to calljumperjim.com. A GitHub Pages site can only have one custom
+   domain, and the redirect is what tells search engines which address is the real one.
 
 ## Preview locally
 

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.calljumperjim.com/sitemap.xml
+Sitemap: https://www.jumperjim.com/sitemap.xml
