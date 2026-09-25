@@ -6,10 +6,21 @@
   <title>Page Not Found | Jumper Jim</title>
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#65BC46">
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/css/styles.css">
+  <!--
+    This page is served for missing URLs at any depth, so resolve assets from the site root.
+    On GitHub Pages project URLs (username.github.io/repo/) the root is the /repo/ folder.
+  -->
+  <script>
+    (function (d) {
+      var base = d.createElement("base");
+      base.href = /\.github\.io$/.test(location.hostname) ? "/" + location.pathname.split("/")[1] + "/" : "/";
+      d.head.appendChild(base);
+    })(document);
+  </script>
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="css/styles.css">
   <style>
     body { padding-bottom: 0; }
     .lost {
@@ -31,16 +42,15 @@
   <main class="lost halftone">
     <div class="lost__inner">
       <picture>
-        <source type="image/webp" srcset="/images/jumper-jim-mascot-240.webp 240w, /images/jumper-jim-mascot-360.webp 360w" sizes="200px">
-        <img class="lost__mascot" src="/images/jumper-jim-mascot-520.png" width="520" height="588"
+        <source type="image/webp" srcset="images/jumper-jim-mascot-240.webp 240w, images/jumper-jim-mascot-360.webp 360w" sizes="200px">
+        <img class="lost__mascot" src="images/jumper-jim-mascot-520.png" width="520" height="588"
              alt="Jumper Jim, the green jump-starter mascot, grinning with his red and black clamps raised">
       </picture>
       <p class="kicker">Wrong turn!</p>
       <h1 class="lost__title display">This page ran out of juice.</h1>
-      <p>The page you're looking for doesn't exist. If your battery is dead, we can still help.</p>
+      <p>The page you're looking for doesn't exist. Head back to the homepage for everything Jumper Jim.</p>
       <div class="btn-row">
-        <a class="btn btn--call btn--lg" href="tel:+12092219788">Call (209) 221-9788</a>
-        <a class="btn btn--yellow btn--lg" href="/">Back to Home</a>
+        <a class="btn btn--yellow btn--lg" href="./">Back to Home</a>
       </div>
     </div>
   </main>

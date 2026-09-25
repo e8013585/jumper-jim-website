@@ -1,0 +1,10 @@
+# Private project notes and local tooling (not part of the website)
+Task.txt
+.claude/
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+__pycache__/
+*.pyc

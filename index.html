@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-launch="2026-11-01T00:00:00-07:00">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Jumper Jim | Mobile Jump Start Service in Tracy, CA</title>
-  <meta name="description" content="Need a jump start? Jumper Jim provides mobile 12V jump-start service for cars, SUVs and pickup trucks in and around Tracy, California. Call for an upfront price before dispatch.">
+  <meta name="description" content="Opening November 1, 2026: Jumper Jim provides mobile 12V jump-start service for cars, SUVs and pickup trucks in and around Tracy, California, with an upfront price before dispatch.">
   <link rel="canonical" href="https://www.jumperjim.com/">
   <meta name="theme-color" content="#65BC46">
   <meta name="format-detection" content="telephone=no">
@@ -15,7 +15,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://www.jumperjim.com/">
   <meta property="og:title" content="Jumper Jim | Mobile Jump Start Service in Tracy, CA">
-  <meta property="og:description" content="Dead battery? Jumper Jim comes to you. Mobile 12V jump starts for cars, SUVs and pickup trucks, from $59 with an upfront price before dispatch.">
+  <meta property="og:description" content="Opening November 1, 2026 in Tracy, CA. Mobile 12V jump starts for cars, SUVs and pickup trucks, from $59 with an upfront price before dispatch.">
   <meta property="og:image" content="https://www.jumperjim.com/images/og-jumper-jim.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -23,10 +23,10 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Icons -->
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
 
   <!-- Performance: fonts and the hero logo are needed for first paint -->
   <link rel="preload" href="fonts/archivo-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -34,6 +34,20 @@
   <link rel="preload" as="image" type="image/webp"
         imagesrcset="images/jumper-jim-logo-360.webp 360w, images/jumper-jim-logo-560.webp 560w, images/jumper-jim-logo-800.webp 800w, images/jumper-jim-logo-1120.webp 1120w"
         imagesizes="(min-width: 900px) 560px, (min-width: 480px) 420px, 86vw" fetchpriority="high">
+  <!--
+    LAUNCH SWITCH: before the opening date in data-launch (on <html>) the site shows
+    "opening soon" messaging and hides the call-now / request-service calls to action.
+    From that moment on it adds .is-live and the full live site appears automatically.
+    Preview either state by adding ?preview=live or ?preview=prelaunch to the URL.
+  -->
+  <script>
+    (function (d) {
+      var root = d.documentElement;
+      var launch = Date.parse(root.getAttribute("data-launch"));
+      var force = (/[?&]preview=(live|prelaunch)/.exec(location.search) || [])[1];
+      if (force === "live" || (!force && Date.now() >= launch)) root.classList.add("is-live");
+    })(document);
+  </script>
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/main.js" defer></script>
 
@@ -93,8 +107,18 @@
     <symbol id="i-locate" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="6.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></g><circle cx="12" cy="12" r="2.4" fill="currentColor"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-contact" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7M19 8v6M16 11h6"/></g></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></g><path fill="currentColor" d="M7 13h3v3H7z"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M4 12h15M13 6l6 6-6 6"/></symbol>
   </svg>
+
+  <!-- ============ PRE-LAUNCH ANNOUNCEMENT ============ -->
+  <div class="launch-bar" data-when="prelaunch" role="note" aria-label="Opening date">
+    <div class="container launch-bar__inner">
+      <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
+      <p><strong>Opening November 1, 2026.</strong> We're not in service yet<span data-countdown></span>.</p>
+    </div>
+  </div>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header">
@@ -123,7 +147,12 @@
         </ul>
       </nav>
 
-      <a class="btn btn--call btn--sm site-header__call" href="tel:+12092219788" aria-label="Call Jumper Jim at (209) 221-9788">
+      <a class="btn btn--call btn--sm site-header__call" href="jumper-jim.vcf" aria-label="Save Jumper Jim's number to your contacts" data-when="prelaunch">
+        <svg class="icon" aria-hidden="true"><use href="#i-contact"/></svg>
+        <span class="site-header__call-short">Save</span>
+        <span class="site-header__call-long">Save Our Number</span>
+      </a>
+      <a class="btn btn--call btn--sm site-header__call" href="tel:+12092219788" aria-label="Call Jumper Jim at (209) 221-9788" data-when="live">
         <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
         <span class="site-header__call-short">Call</span>
         <span class="site-header__call-long">(209) 221-9788</span>
@@ -152,21 +181,40 @@
         </div>
 
         <div class="hero__copy">
-          <p class="eyebrow">
+          <p class="eyebrow" data-when="live">
             <svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg>
             12V Jump Starts &middot; Tracy, CA
+          </p>
+          <p class="eyebrow eyebrow--soon" data-when="prelaunch">
+            <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
+            Opening Nov 1, 2026 &middot; Tracy, CA
           </p>
           <h1 class="hero__title display" id="hero-title">
             Dead Battery? <span class="hero__title-name">Jumper Jim</span> <span class="marker">Comes to You.</span>
           </h1>
           <p class="hero__lede">Fast mobile 12V jump-start service for cars, SUVs and pickup trucks.</p>
 
+          <div class="launch-notice" data-when="prelaunch">
+            <p class="launch-notice__tag">Not in service yet</p>
+            <p><strong>Jumper Jim opens November 1, 2026.</strong> We can't take jump-start calls or requests until then. Save our number so it's ready when you need it.</p>
+          </div>
+
           <ul class="hero__points" role="list">
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Jump starts from $59</li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Upfront price before dispatch</li>
           </ul>
 
-          <div class="hero__ctas">
+          <div class="hero__ctas" data-when="prelaunch">
+            <a class="btn btn--call btn--xl" href="jumper-jim.vcf">
+              <span class="btn__icon-ring"><svg class="icon" aria-hidden="true"><use href="#i-contact"/></svg></span>
+              <span class="btn__stack"><span class="btn__label">Save Our Number</span><span class="btn__sub">(209) 221-9788</span></span>
+            </a>
+            <a class="btn btn--yellow btn--xl" href="#how-it-works">
+              <span class="btn__label">See How It Works</span>
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+          </div>
+          <div class="hero__ctas" data-when="live">
             <a class="btn btn--call btn--xl" href="tel:+12092219788">
               <span class="btn__icon-ring"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
               <span class="btn__stack"><span class="btn__label">Call Now</span><span class="btn__sub">(209) 221-9788</span></span>
@@ -229,7 +277,14 @@
           </li>
         </ol>
 
-        <div class="section-cta">
+        <div class="section-cta section-cta--soon" data-when="prelaunch">
+          <p class="soon-pill"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg> Starts November 1, 2026</p>
+          <a class="btn btn--call btn--lg" href="jumper-jim.vcf">
+            <svg class="icon" aria-hidden="true"><use href="#i-contact"/></svg>
+            Save Our Number
+          </a>
+        </div>
+        <div class="section-cta" data-when="live">
           <a class="btn btn--call btn--lg" href="tel:+12092219788">
             <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
             Call (209) 221-9788
@@ -368,8 +423,19 @@
           <p class="kicker">Where We Work</p>
           <h2 class="section-title display" id="area-title">Service Area</h2>
           <p class="area__lead">Based in <strong>Tracy, California.</strong></p>
-          <p>Service availability and pricing depend on your location. Call or text us with your location for an upfront quote.</p>
-          <div class="btn-row">
+          <p data-when="live">Service availability and pricing depend on your location. Call or text us with your location for an upfront quote.</p>
+          <p data-when="prelaunch">Service starts <strong>November 1, 2026</strong>. Once we open, availability and pricing will depend on your location. Call or text us with your location for an upfront quote.</p>
+          <div class="btn-row" data-when="prelaunch">
+            <a class="btn btn--call btn--lg" href="jumper-jim.vcf">
+              <svg class="icon" aria-hidden="true"><use href="#i-contact"/></svg>
+              Save Our Number
+            </a>
+            <a class="btn btn--white btn--lg" href="mailto:communications@jumperjim.com?subject=Question%20for%20Jumper%20Jim">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              Email a Question
+            </a>
+          </div>
+          <div class="btn-row" data-when="live">
             <a class="btn btn--call btn--lg" href="tel:+12092219788">
               <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
               Call for a Quote
@@ -423,13 +489,32 @@
     <section class="section section--cream halftone" id="request" aria-labelledby="request-title">
       <div class="container request">
         <div class="request__intro">
-          <p class="kicker">Can't talk right now?</p>
+          <p class="kicker" data-when="live">Can't talk right now?</p>
+          <p class="kicker" data-when="prelaunch">Coming November 1</p>
           <h2 class="section-title display" id="request-title">Request a Jump Start</h2>
-          <p>Send us your location and vehicle details. We'll confirm your upfront price before anyone heads your way.</p>
-          <p class="request__fast"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg> <span>Calling is the fastest way to reach us: <a href="tel:+12092219788">(209)&nbsp;221-9788</a></span></p>
+          <p data-when="live">Send us your location and vehicle details. We'll confirm your upfront price before anyone heads your way.</p>
+          <p data-when="prelaunch">Online jump-start requests open <strong>November 1, 2026</strong>, the day Jumper Jim starts service.</p>
+          <p class="request__fast" data-when="live"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg> <span>Calling is the fastest way to reach us: <a href="tel:+12092219788">(209)&nbsp;221-9788</a></span></p>
         </div>
 
-        <div class="request__card panel">
+        <div class="request__card request__soon panel" data-when="prelaunch">
+          <span class="form-result__badge form-result__badge--yellow"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+          <h3 class="form-result__title display">Requests open November 1, 2026</h3>
+          <p>Jumper Jim isn't in service yet, so we can't accept jump-start requests before opening day. Save our number now and help will be one tap away once we open.</p>
+          <p class="soon-pill" data-countdown-pill hidden></p>
+          <div class="form-result__actions">
+            <a class="btn btn--call btn--lg btn--block" href="jumper-jim.vcf">
+              <svg class="icon" aria-hidden="true"><use href="#i-contact"/></svg>
+              Save Our Number
+            </a>
+            <a class="btn btn--yellow btn--lg btn--block" href="mailto:communications@jumperjim.com?subject=Question%20for%20Jumper%20Jim">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              Email a Question
+            </a>
+          </div>
+        </div>
+
+        <div class="request__card panel" data-when="live">
           <!--
             FORM HANDLING
             Set data-endpoint to a URL that accepts a POST (e.g. Formspree, a serverless
@@ -584,9 +669,21 @@
     <section class="final-cta halftone" aria-labelledby="final-title">
       <div class="container final-cta__grid">
         <div class="final-cta__copy">
+          <p class="soon-pill soon-pill--dark" data-when="prelaunch"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg> Opening November 1, 2026</p>
           <h2 class="final-cta__title display" id="final-title">Need a Jump? <span>Call Jumper Jim.</span></h2>
-          <p class="final-cta__lede">Mobile 12V jump starts from $59, with your upfront price confirmed before dispatch.</p>
-          <div class="btn-row">
+          <p class="final-cta__lede" data-when="live">Mobile 12V jump starts from $59, with your upfront price confirmed before dispatch.</p>
+          <p class="final-cta__lede" data-when="prelaunch">Starting November 1, 2026: mobile 12V jump starts from $59, with your upfront price confirmed before dispatch. Save our number now so it's ready when you need it.</p>
+          <div class="btn-row" data-when="prelaunch">
+            <a class="btn btn--call btn--xl" href="jumper-jim.vcf">
+              <span class="btn__icon-ring"><svg class="icon" aria-hidden="true"><use href="#i-contact"/></svg></span>
+              <span class="btn__stack"><span class="btn__label">Save Our Number</span><span class="btn__sub">(209) 221-9788</span></span>
+            </a>
+            <a class="btn btn--white btn--xl" href="mailto:communications@jumperjim.com?subject=Question%20for%20Jumper%20Jim">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              <span class="btn__label">Email Us</span>
+            </a>
+          </div>
+          <div class="btn-row" data-when="live">
             <a class="btn btn--call btn--xl" href="tel:+12092219788">
               <span class="btn__icon-ring"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
               <span class="btn__stack"><span class="btn__label">Call Now</span><span class="btn__sub">(209) 221-9788</span></span>
@@ -651,11 +748,18 @@
 
   <!-- ============ MOBILE STICKY ACTIONS ============ -->
   <nav class="action-bar" aria-label="Quick actions">
-    <a class="btn btn--call action-bar__call" href="tel:+12092219788">
+    <a class="btn btn--call action-bar__call" href="jumper-jim.vcf" data-when="prelaunch">
+      <svg class="icon" aria-hidden="true"><use href="#i-contact"/></svg>
+      <span class="btn__stack"><span class="btn__label">Save Number</span><span class="btn__sub">(209) 221-9788</span></span>
+    </a>
+    <a class="btn btn--yellow action-bar__request" href="#request" data-when="prelaunch">
+      <span class="btn__stack btn__stack--center"><span class="btn__label">Opens Nov 1</span><span class="btn__sub">2026</span></span>
+    </a>
+    <a class="btn btn--call action-bar__call" href="tel:+12092219788" data-when="live">
       <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
       <span class="btn__stack"><span class="btn__label">Call Now</span><span class="btn__sub">(209) 221-9788</span></span>
     </a>
-    <a class="btn btn--yellow action-bar__request" href="#request">
+    <a class="btn btn--yellow action-bar__request" href="#request" data-when="live">
       <span class="btn__label">Request Service</span>
     </a>
   </nav>

@@ -120,6 +120,10 @@ button, input, textarea, select { font: inherit; color: inherit; }
 
 [hidden] { display: none !important; }
 
+/* Launch state: <html> gets .is-live on/after the opening date (see <head>) */
+html:not(.is-live) [data-when="live"],
+html.is-live [data-when="prelaunch"] { display: none !important; }
+
 .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 
 .icon {
@@ -371,6 +375,90 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .sym .icon { width: 16px; height: 16px; }
 .sym--plus { background: var(--red); color: var(--white); }
 .sym--minus { background: var(--black); color: var(--white); }
+
+/* ==========================================================================
+   Pre-launch ("opening soon") elements
+   ========================================================================== */
+.launch-bar {
+  background: var(--red);
+  color: var(--white);
+  border-bottom: var(--outline);
+  --focus: var(--yellow);
+}
+.launch-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding-block: 8px;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+.launch-bar .icon { color: var(--yellow); width: 20px; height: 20px; }
+.launch-bar strong { font-weight: 850; letter-spacing: 0.01em; }
+
+.eyebrow--soon { background: var(--red); }
+.eyebrow--soon .icon { color: var(--white); }
+
+.launch-notice {
+  position: relative;
+  max-width: 34rem;
+  margin: 26px auto 4px;
+  padding: 22px 18px 16px;
+  background: var(--paper);
+  border: var(--outline);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+.launch-notice__tag {
+  position: absolute;
+  top: -14px;
+  left: 14px;
+  padding: 3px 12px;
+  background: var(--yellow);
+  border: 2.5px solid var(--black);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-style: italic;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+
+.soon-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--paper);
+  border: 2.5px solid var(--black);
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+.soon-pill .icon { width: 18px; height: 18px; color: var(--red); }
+.soon-pill--dark { background: var(--black); color: var(--white); margin-bottom: 14px; }
+.soon-pill--dark .icon { color: var(--yellow); }
+
+.section-cta--soon { flex-direction: column; align-items: center; gap: 14px; }
+
+.request__soon {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+}
+.request__soon > p:not(.soon-pill) { max-width: 40ch; }
+.request__soon .form-result__title { font-size: clamp(1.6rem, 6vw, 2.1rem); }
+
+.btn__stack--center { align-items: center; text-align: center; }
 
 /* ==========================================================================
    Header
@@ -1278,6 +1366,7 @@ body.is-typing .action-bar { transform: translateY(110%); }
   .benefits { grid-template-columns: 1fr 1fr; }
   .request__card { padding: 30px 28px; }
   .form-result__actions { grid-template-columns: 1fr 1fr; }
+  .launch-notice { padding: 24px 22px 18px; }
   .site-header__call-short { display: none; }
   .site-header__call-long { display: inline; }
 }

@@ -12,7 +12,24 @@
   var yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  /* ---------- Mobile navigation ---------- */
+  /* ---------- Opening-day countdown (pre-launch only) ---------- */
+  var launchAt = Date.parse(document.documentElement.getAttribute("data-launch"));
+  if (!document.documentElement.classList.contains("is-live") && !isNaN(launchAt)) {
+    var msLeft = launchAt - Date.now();
+    if (msLeft > 0) {
+      var days = Math.ceil(msLeft / 86400000);
+      var inText = days === 1 ? "tomorrow" : "in " + days + " days";
+      Array.prototype.forEach.call(document.querySelectorAll("[data-countdown]"), function (el) {
+        el.textContent = " — opening " + inText;
+      });
+      Array.prototype.forEach.call(document.querySelectorAll("[data-countdown-pill]"), function (el) {
+        el.textContent = days === 1 ? "Opening tomorrow!" : days + " days to go";
+        el.hidden = false;
+      });
+    }
+  }
+
+    /* ---------- Mobile navigation ---------- */
   var navToggle = document.querySelector(".site-nav__toggle");
   var navMenu = document.getElementById("site-nav-menu");
 
