@@ -143,8 +143,9 @@ python scripts/optimize-images.py
 
 ## Things to confirm before launch
 
-- **Service area.** The site only says "Based in Tracy" and asks customers for their location, because
-  no service radius was provided. Add confirmed cities or a radius in the Service Area section when ready.
+- **Service area and pricing.** The site says Jumper Jim serves Tracy, CA only, and shows the distance-based
+  price table (from $59.99 for 0–5 miles, measured from the home base). Update the Pricing section in
+  `index.html`, the "from $59.99" mentions and `minPrice` in the structured data if prices change.
 - **Hours / availability.** The site deliberately makes no claims about hours or response times.
   Add real hours if you want to publish them.
 - **Privacy note.** The form collects name, phone and location. Consider adding a short privacy line or

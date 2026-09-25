@@ -614,6 +614,7 @@ html.is-live [data-when="prelaunch"] { display: none !important; }
 }
 .price-burst__from { font-size: clamp(0.8rem, 3.2vw, 1.05rem); font-stretch: 115%; letter-spacing: 0.04em; }
 .price-burst__amount { font-size: clamp(2rem, 9vw, 3rem); font-stretch: 105%; letter-spacing: -0.02em; }
+.price-burst__cents { font-size: 0.45em; vertical-align: 0.95em; letter-spacing: 0; margin-left: 1px; }
 
 .tagline-bubble {
   position: absolute;
@@ -964,6 +965,104 @@ html.is-live [data-when="prelaunch"] { display: none !important; }
   font-weight: 600;
 }
 .area__copy .btn-row { margin-top: 24px; }
+
+/* ==========================================================================
+   Pricing
+   ========================================================================== */
+.section-head__lede {
+  margin-top: 14px;
+  font-size: clamp(1.02rem, 2.6vw, 1.15rem);
+  line-height: 1.5;
+}
+.pricing {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  max-width: 980px;
+  margin-inline: auto;
+  align-items: center;
+}
+.price-board { padding: 0; overflow: hidden; }
+.price-board__title {
+  padding: 14px 20px;
+  background: var(--black);
+  color: var(--yellow);
+  border-bottom: var(--outline);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: 112%;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  text-align: center;
+}
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.price-table thead th {
+  padding: 14px 18px 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+}
+.price-table th:last-child,
+.price-table td { text-align: right; }
+.price-table tbody th,
+.price-table tbody td {
+  padding: 12px 18px;
+  border-top: 2px dashed var(--line-soft);
+}
+.price-table tbody th {
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-align: left;
+  white-space: nowrap;
+}
+.price-table__first { background: var(--yellow-100); }
+.price-table__meter {
+  /* little "distance" gauge that fills up as the miles go up */
+  display: inline-block;
+  width: 44px;
+  height: 11px;
+  margin-right: 12px;
+  vertical-align: 1px;
+  border: 2px solid var(--black);
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--green) calc(var(--step) / 7 * 100%), #eee6c6 0);
+}
+.price-table__quote .price-table__meter {
+  background: linear-gradient(90deg, var(--green) 85%, var(--red) 0);
+}
+.price {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: 106%;
+  font-size: 1.6rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+.price__cents { font-size: 0.55em; vertical-align: 0.6em; margin-left: 1px; }
+.price--quote {
+  display: inline-block;
+  font-size: 1rem;
+  font-stretch: 100%;
+  line-height: 1.15;
+  text-transform: uppercase;
+  white-space: normal;
+  color: var(--red);
+}
+.pricing__side {
+  display: grid;
+  gap: 18px;
+  justify-items: start;
+}
+.pricing__side .ticks { margin-top: 0; }
 
 /* ==========================================================================
    Why Jumper Jim
@@ -1337,6 +1436,9 @@ body.is-typing .action-bar { transform: translateY(110%); }
   .site-header__call { padding-inline: 0.7em; }
   .vehicle { gap: 12px; padding: 12px 14px; }
   .vehicle__art { width: 92px; }
+  .price-table tbody th, .price-table tbody td { padding-inline: 12px; }
+  .price-table__meter { width: 30px; margin-right: 8px; }
+  .price { font-size: 1.4rem; }
   .action-bar { gap: 8px; padding-inline: 8px; }
   .action-bar .btn { padding-inline: 0.45em; }
   .action-bar__call > .icon { display: none; }
@@ -1375,6 +1477,9 @@ body.is-typing .action-bar { transform: translateY(110%); }
   .steps { grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .step { padding: 38px 24px 28px; }
   .area { grid-template-columns: 1fr 1fr; gap: 56px; }
+  .pricing { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 44px; }
+  .price-table tbody th, .price-table tbody td { padding: 13px 24px; }
+  .price-table thead th { padding-inline: 24px; }
   .fuel-strip .chip { font-size: 1.05rem; padding: 0.35em 1em; }
   .final-cta__grid { grid-template-columns: 1.2fr 0.8fr; gap: 24px; }
   .final-cta__copy { text-align: left; padding-bottom: clamp(40px, 6vw, 80px); }
