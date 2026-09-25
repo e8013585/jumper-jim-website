@@ -1,7 +1,8 @@
 # Jumper Jim website
 
 The one-page website for **Jumper Jim**, a mobile 12V jump-start service based in Tracy, California.
-Live domain: https://www.jumperjim.com/
+Domain: https://www.calljumperjim.com/ (registered, not yet connected)
+Currently published at: https://e8013585.github.io/jumper-jim-website/
 
 It's a plain static site: HTML, CSS and a small JavaScript file. There's no build step, no framework and
 no dependencies, so any static host can serve it (Netlify, Cloudflare Pages, GitHub Pages, Vercel,
@@ -46,6 +47,25 @@ needed. The switch uses each visitor's device clock.
   `og:description` in `index.html`, which search engines and link previews show.
 - Visitors with JavaScript turned off always see the pre-launch version, so plan to remove the
   pre-launch elements (anything marked `data-when="prelaunch"`) some time after opening.
+
+## Publishing
+
+The site is published by GitHub Pages from the `main` branch of
+[e8013585/jumper-jim-website](https://github.com/e8013585/jumper-jim-website). Every push to `main`
+goes live about a minute later.
+
+### Connecting calljumperjim.com
+
+1. At your domain registrar, add these DNS records:
+   - `A` records for `calljumperjim.com` (host `@`) pointing to `185.199.108.153`, `185.199.109.153`,
+     `185.199.110.153` and `185.199.111.153`
+   - a `CNAME` record for `www` pointing to `e8013585.github.io`
+2. In the GitHub repo, go to **Settings > Pages > Custom domain**, enter `www.calljumperjim.com` and save.
+   GitHub adds a `CNAME` file to the repo.
+3. Once the DNS check passes (minutes to a few hours), tick **Enforce HTTPS**.
+
+The page's canonical link, social preview image, structured data, `robots.txt` and `sitemap.xml` already
+point to `https://www.calljumperjim.com/`.
 
 ## Preview locally
 
