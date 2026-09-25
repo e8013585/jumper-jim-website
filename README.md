@@ -60,7 +60,7 @@ the "Use my current location" button work.
 
 The form works today without a backend. When a customer submits it, the site checks the fields, then
 hands the finished request to their **text messaging or email app**, addressed to Jumper Jim
-((209) 221-9788 / communications@jumperjim.com). The customer taps send in that app. The page tells them
+((209) 221-9788 / info@jumperjim.com). The customer taps send in that app. The page tells them
 clearly that the request isn't sent until they do.
 
 To have submissions delivered straight to you instead, set the form's `data-endpoint` attribute in

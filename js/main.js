@@ -5,7 +5,7 @@
   var BUSINESS = {
     phoneE164: "+12092219788",
     phoneDisplay: "(209) 221-9788",
-    email: "communications@jumperjim.com"
+    email: "info@jumperjim.com"
   };
 
   /* ---------- Footer year ---------- */
