@@ -36,8 +36,8 @@ Open http://localhost:8321 (serve over HTTP, not `file://`). Add `?preview=live`
   data, `robots.txt`, `sitemap.xml`). `calljumperjim.com` is only a 301 redirect and must never appear
   in the site's code.
 - **Paths:** keep asset links relative (no leading `/`) so the site also works from a subfolder.
-- **Opening date:** written as "November 1st, 2026" in full text (short labels use "Nov 1").
-- **Prices:** if prices change, update the Pricing table, every "from $59.99" mention, the hero price
+- **Opening date:** written as "November 1st, 2026" in full text (short labels use "Nov 1st").
+- **Prices:** shown as whole dollars with no cents (e.g. "$59"). If prices change, update the Pricing table, every "from $59" mention, the hero price
   burst and `minPrice` in the JSON-LD structured data.
 - **Pre-launch content:** elements marked `data-when="prelaunch"` / `data-when="live"` are toggled by
   `js/main.js`; update both variants when changing shared copy.

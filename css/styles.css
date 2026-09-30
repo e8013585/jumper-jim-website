@@ -1046,7 +1046,6 @@ html.is-live [data-when="prelaunch"] { display: none !important; }
   line-height: 1;
   white-space: nowrap;
 }
-.price__cents { font-size: 0.55em; vertical-align: 0.6em; margin-left: 1px; }
 .price--quote {
   display: inline-block;
   font-size: 1rem;
