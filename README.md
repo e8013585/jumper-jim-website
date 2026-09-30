@@ -1,9 +1,9 @@
 # Jumper Jim website
 
 The one-page website for **Jumper Jim**, a mobile 12V jump-start service based in Tracy, California.
-Main domain: https://www.jumperjim.com/ (registered with Zoho, not yet connected)
+Live at: https://www.jumperjim.com/ (domain registered with Zoho, served by GitHub Pages)
 Second domain: calljumperjim.com (Porkbun), which only redirects to www.jumperjim.com
-Currently published at: https://e8013585.github.io/jumper-jim-website/
+The old GitHub Pages address, https://e8013585.github.io/jumper-jim-website/, redirects to www.jumperjim.com.
 
 It's a plain static site: HTML, CSS and a small JavaScript file. There's no build step, no framework and
 no dependencies, so any static host can serve it (Netlify, Cloudflare Pages, GitHub Pages, Vercel,
@@ -29,13 +29,13 @@ or ordinary shared hosting).
 
 ## Opening day (pre-launch mode)
 
-Until **November 1, 2026 at 12:00 AM Pacific**, the site runs in pre-launch mode:
+Until **November 1st, 2026 at 12:00 AM Pacific**, the site runs in pre-launch mode:
 
-- A red banner at the top says the business opens November 1, 2026 and isn't in service yet, with a
+- A red banner at the top says the business opens November 1st, 2026 and isn't in service yet, with a
   live "opening in N days" countdown.
 - "Call Now" and "Request a Jump Start" buttons are replaced by **Save Our Number** (downloads
   `jumper-jim.vcf`, a contact card phones can add straight to Contacts) and **Email a Question**.
-- The request form is replaced by a "Requests open November 1, 2026" card.
+- The request form is replaced by a "Requests open November 1st, 2026" card.
 - Your phone number and email still appear as plain contact details in the contact list and footer.
 
 At the opening moment the site switches to the full live version **by itself**. No edit or redeploy is
@@ -44,7 +44,7 @@ needed. The switch uses each visitor's device clock.
 - **Preview the live version now:** add `?preview=live` to the URL (e.g. `http://localhost:8321/?preview=live`).
 - **Preview pre-launch after opening day:** add `?preview=prelaunch`.
 - **Change the opening date:** edit `data-launch` on the `<html>` tag at the top of `index.html`.
-- **After launch (optional cleanup):** remove "Opening November 1, 2026:" from the meta description and
+- **After launch (optional cleanup):** remove "Opening November 1st, 2026:" from the meta description and
   `og:description` in `index.html`, which search engines and link previews show.
 - Visitors with JavaScript turned off always see the pre-launch version, so plan to remove the
   pre-launch elements (anything marked `data-when="prelaunch"`) some time after opening.

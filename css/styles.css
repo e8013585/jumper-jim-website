@@ -614,7 +614,6 @@ html.is-live [data-when="prelaunch"] { display: none !important; }
 }
 .price-burst__from { font-size: clamp(0.8rem, 3.2vw, 1.05rem); font-stretch: 115%; letter-spacing: 0.04em; }
 .price-burst__amount { font-size: clamp(2rem, 9vw, 3rem); font-stretch: 105%; letter-spacing: -0.02em; }
-.price-burst__cents { font-size: 0.45em; vertical-align: 0.95em; letter-spacing: 0; margin-left: 1px; }
 
 .tagline-bubble {
   position: absolute;
