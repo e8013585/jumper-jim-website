@@ -144,8 +144,10 @@ python scripts/optimize-images.py
 ## Things to confirm before launch
 
 - **Service area and pricing.** The site says Jumper Jim serves Tracy, CA only, and shows the distance-based
-  price table (from $59 for 0–5 miles, measured from the home base). Update the Pricing section in
-  `index.html`, the "from $59" mentions and `minPrice` in the structured data if prices change.
+  price table (from $47 for 0–5 miles, measured from the home base). A **20% discount** is running:
+  the table shows each regular price crossed out ($59, $69, $79, $89, $99, $109) next to the discounted
+  price, rounded down to whole dollars. Update the Pricing section in `index.html`, the hero price star,
+  the "from $47" mentions and `minPrice` in the structured data if prices change or the discount ends.
 - **Hours / availability.** The site deliberately makes no claims about hours or response times.
   Add real hours if you want to publish them.
 - **Privacy note.** The form collects name, phone and location. Consider adding a short privacy line or
