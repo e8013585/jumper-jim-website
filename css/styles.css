@@ -615,7 +615,7 @@ html.is-live [data-when="prelaunch"] { display: none !important; }
 .price-burst__from { font-size: clamp(0.8rem, 3.2vw, 1.05rem); font-stretch: 115%; letter-spacing: 0.04em; }
 .price-burst__amount { font-size: clamp(2rem, 9vw, 3rem); font-stretch: 105%; letter-spacing: -0.02em; }
 .price-burst__deal {
-  /* "20% off" sticker pinned to the top of the star */
+  /* "10% off" sticker pinned to the top of the star */
   position: absolute;
   top: -6%;
   left: 50%;

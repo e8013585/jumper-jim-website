@@ -37,10 +37,11 @@ Open http://localhost:8321 (serve over HTTP, not `file://`). Add `?preview=live`
   in the site's code.
 - **Paths:** keep asset links relative (no leading `/`) so the site also works from a subfolder.
 - **Opening date:** written as "November 1st, 2026" in full text (short labels use "Nov 1st").
-- **Prices:** shown as whole dollars with no cents. A 20% discount is running: regular prices
-  ($59–$109) are shown crossed out next to discounted prices ($47–$87, rounded down). If prices change
-  or the discount ends, update the Pricing table, every "from $47" / "20% off" mention, the hero price
-  star and its "20% off" sticker, and `minPrice` in the JSON-LD structured data.
+- **Prices:** shown as whole dollars with no cents. A limited-time 10% discount runs until
+  December 31st, 2026: regular prices ($59–$109) are shown crossed out next to discounted prices
+  ($53–$98, rounded down). Nothing switches back automatically. If prices change or the discount
+  ends, update the Pricing table, every "from $53" / "10% off" / "December 31st" mention, the hero
+  price star and its "10% off" sticker, and `minPrice` / `validThrough` in the JSON-LD structured data.
 - **Pre-launch content:** elements marked `data-when="prelaunch"` / `data-when="live"` are toggled by
   `js/main.js`; update both variants when changing shared copy.
 - **Line endings:** `css/styles.css` and `js/main.js` are stored with CRLF; `*.vcf` must keep CRLF.
