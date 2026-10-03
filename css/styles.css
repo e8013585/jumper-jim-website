@@ -720,6 +720,7 @@ html.offer-ended [data-offer="on"] { display: none !important; }
   background: var(--green);
   color: var(--black);
 }
+.hero__points-area .icon { background: var(--red); color: var(--white); }
 
 .hero__ctas {
   display: grid;
