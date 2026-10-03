@@ -43,6 +43,7 @@ needed. The switch uses each visitor's device clock.
 
 - **Preview the live version now:** add `?preview=live` to the URL (e.g. `http://localhost:8321/?preview=live`).
 - **Preview pre-launch after opening day:** add `?preview=prelaunch`.
+- **Preview prices after the 10% offer ends:** add `?offer=ended` (combine with `&preview=live`).
 - **Change the opening date:** edit `data-launch` on the `<html>` tag at the top of `index.html`.
 - **After launch (optional cleanup):** remove "Opening November 1st, 2026:" from the meta description and
   `og:description` in `index.html`, which search engines and link previews show.
@@ -146,10 +147,11 @@ python scripts/optimize-images.py
 - **Service area and pricing.** The site says Jumper Jim serves Tracy, CA only, and shows the distance-based
   price table (from $53 for 0–5 miles, measured from the home base). A **10% discount** runs until
   **December 31st, 2026**: the table shows each regular price crossed out ($59, $69, $79, $89, $99, $109)
-  next to the discounted price ($53, $62, $71, $80, $89, $98, rounded down to whole dollars). The site
-  does not switch back by itself, so after the offer ends, update the Pricing section in `index.html`, the
-  hero price star and its sticker, the "from $53" / "10% off" mentions, and `minPrice` / `validThrough`
-  in the structured data.
+  next to the discounted price ($53, $62, $71, $80, $89, $98, rounded down to whole dollars). At
+  **January 1st, 2027 at 12:00 AM Pacific** the site switches back to regular prices by itself (set by
+  `data-offer-end` on `<html>`; preview with `?offer=ended`). Discounted copy is marked `data-offer="on"`
+  and its regular-price twin `data-offer="off"`. The meta description and `og:description` can't switch
+  automatically, so remove the "10% off" wording from them after the offer ends.
 - **Hours / availability.** The site deliberately makes no claims about hours or response times.
   Add real hours if you want to publish them.
 - **Privacy note.** The form collects name, phone and location. Consider adding a short privacy line or

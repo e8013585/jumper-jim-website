@@ -124,6 +124,10 @@ button, input, textarea, select { font: inherit; color: inherit; }
 html:not(.is-live) [data-when="live"],
 html.is-live [data-when="prelaunch"] { display: none !important; }
 
+/* Offer state: <html> gets .offer-ended once the opening discount is over (see <head>) */
+html:not(.offer-ended) [data-offer="off"],
+html.offer-ended [data-offer="on"] { display: none !important; }
+
 .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 
 .icon {

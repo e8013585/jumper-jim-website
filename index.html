@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-launch="2026-11-01T00:00:00-07:00">
+<html lang="en" data-launch="2026-11-01T00:00:00-07:00" data-offer-end="2027-01-01T00:00:00-08:00">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -39,6 +39,10 @@
     "opening soon" messaging and hides the call-now / request-service calls to action.
     From that moment on it adds .is-live and the full live site appears automatically.
     Preview either state by adding ?preview=live or ?preview=prelaunch to the URL.
+
+    OFFER SWITCH: the 10% opening discount ends at the moment in data-offer-end (on <html>).
+    From then on it adds .offer-ended, which hides everything marked data-offer="on" and shows
+    the regular prices marked data-offer="off". Preview it with ?offer=ended (or ?offer=on).
   -->
   <script>
     (function (d) {
@@ -46,6 +50,9 @@
       var launch = Date.parse(root.getAttribute("data-launch"));
       var force = (/[?&]preview=(live|prelaunch)/.exec(location.search) || [])[1];
       if (force === "live" || (!force && Date.now() >= launch)) root.classList.add("is-live");
+      var offerEnd = Date.parse(root.getAttribute("data-offer-end"));
+      var offer = (/[?&]offer=(on|ended)/.exec(location.search) || [])[1];
+      if (offer === "ended" || (!offer && Date.now() >= offerEnd)) root.classList.add("offer-ended");
     })(document);
   </script>
   <link rel="stylesheet" href="css/styles.css">
@@ -82,12 +89,20 @@
         "name": "Mobile 12V Jump Start",
         "serviceType": "Mobile jump-start service for compatible 12V vehicle systems"
       },
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "minPrice": 53,
-        "validThrough": "2026-12-31",
-        "priceCurrency": "USD"
-      }
+      "priceSpecification": [
+        {
+          "@type": "PriceSpecification",
+          "minPrice": 53,
+          "validThrough": "2026-12-31",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "PriceSpecification",
+          "minPrice": 59,
+          "validFrom": "2027-01-01",
+          "priceCurrency": "USD"
+        }
+      ]
     }
   }
   </script>
@@ -181,8 +196,8 @@
           </picture>
           <p class="price-burst">
             <svg class="price-burst__shape" viewBox="-8 -8 216 216" aria-hidden="true"><polygon points="100,0 114.2,19.2 134.2,6 141,29 164.3,23.4 162.8,47.3 186.6,50 177.1,72 198.5,82.6 182,100 198.5,117.4 177.1,128 186.6,150 162.8,152.7 164.3,176.6 141,171 134.2,194 114.2,180.8 100,200 85.8,180.8 65.8,194 59,171 35.7,176.6 37.2,152.7 13.4,150 22.9,128 1.5,117.4 18,100 1.5,82.6 22.9,72 13.4,50 37.2,47.3 35.7,23.4 59,29 65.8,6 85.8,19.2"/></svg>
-            <span class="price-burst__deal">10% off</span>
-            <span class="price-burst__text"><span class="price-burst__from">From</span> <span class="price-burst__amount">$53</span></span>
+            <span class="price-burst__deal" data-offer="on">10% off</span>
+            <span class="price-burst__text"><span class="price-burst__from">From</span> <span class="price-burst__amount"><span data-offer="on">$53</span><span data-offer="off">$59</span></span></span>
           </p>
           <p class="tagline-bubble">More Power, More Smiles!</p>
         </div>
@@ -207,7 +222,8 @@
           </div>
 
           <ul class="hero__points" role="list">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Jump starts from $53 (10% off until Dec 31st)</li>
+            <li data-offer="on"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Jump starts from $53 (10% off until Dec 31st)</li>
+            <li data-offer="off"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Jump starts from $59</li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Upfront price before dispatch</li>
           </ul>
 
@@ -462,44 +478,44 @@
         <header class="section-head">
           <p class="kicker">No surprises</p>
           <h2 class="section-title display" id="pricing-title">Pricing</h2>
-          <p class="section-head__lede">One simple rule: your price depends on how far you are from Jumper Jim's home base in Tracy. You'll know your exact price before we head your way. For a limited time, every price is <strong>10% off until December 31st, 2026</strong>.</p>
+          <p class="section-head__lede">One simple rule: your price depends on how far you are from Jumper Jim's home base in Tracy. You'll know your exact price before we head your way.<span data-offer="on"> For a limited time, every price is <strong>10% off until December 31st, 2026</strong>.</span></p>
         </header>
 
         <div class="pricing">
           <div class="price-board panel">
-            <p class="price-board__title">12V Jump Start <span class="price-board__deal">10% off</span></p>
+            <p class="price-board__title">12V Jump Start <span class="price-board__deal" data-offer="on">10% off</span></p>
             <table class="price-table">
               <caption class="visually-hidden">Mobile 12V jump-start prices by distance from Jumper Jim's home base in Tracy, California</caption>
               <thead>
                 <tr>
                   <th scope="col">Distance from Jumper Jim</th>
-                  <th scope="col">Price (10% off)</th>
+                  <th scope="col">Price<span data-offer="on"> (10% off)</span></th>
                 </tr>
               </thead>
               <tbody>
                 <tr class="price-table__first">
                   <th scope="row"><span class="price-table__meter" style="--step: 1" aria-hidden="true"></span>0&ndash;5 miles</th>
-                  <td><s class="price-was"><span class="visually-hidden">Regular price </span>$59</s> <span class="price"><span class="visually-hidden">Now </span>$53</span></td>
+                  <td><s class="price-was" data-offer="on"><span class="visually-hidden">Regular price </span>$59</s> <span class="price" data-offer="on"><span class="visually-hidden">Now </span>$53</span><span class="price" data-offer="off">$59</span></td>
                 </tr>
                 <tr>
                   <th scope="row"><span class="price-table__meter" style="--step: 2" aria-hidden="true"></span>6&ndash;10 miles</th>
-                  <td><s class="price-was"><span class="visually-hidden">Regular price </span>$69</s> <span class="price"><span class="visually-hidden">Now </span>$62</span></td>
+                  <td><s class="price-was" data-offer="on"><span class="visually-hidden">Regular price </span>$69</s> <span class="price" data-offer="on"><span class="visually-hidden">Now </span>$62</span><span class="price" data-offer="off">$69</span></td>
                 </tr>
                 <tr>
                   <th scope="row"><span class="price-table__meter" style="--step: 3" aria-hidden="true"></span>11&ndash;15 miles</th>
-                  <td><s class="price-was"><span class="visually-hidden">Regular price </span>$79</s> <span class="price"><span class="visually-hidden">Now </span>$71</span></td>
+                  <td><s class="price-was" data-offer="on"><span class="visually-hidden">Regular price </span>$79</s> <span class="price" data-offer="on"><span class="visually-hidden">Now </span>$71</span><span class="price" data-offer="off">$79</span></td>
                 </tr>
                 <tr>
                   <th scope="row"><span class="price-table__meter" style="--step: 4" aria-hidden="true"></span>16&ndash;20 miles</th>
-                  <td><s class="price-was"><span class="visually-hidden">Regular price </span>$89</s> <span class="price"><span class="visually-hidden">Now </span>$80</span></td>
+                  <td><s class="price-was" data-offer="on"><span class="visually-hidden">Regular price </span>$89</s> <span class="price" data-offer="on"><span class="visually-hidden">Now </span>$80</span><span class="price" data-offer="off">$89</span></td>
                 </tr>
                 <tr>
                   <th scope="row"><span class="price-table__meter" style="--step: 5" aria-hidden="true"></span>21&ndash;25 miles</th>
-                  <td><s class="price-was"><span class="visually-hidden">Regular price </span>$99</s> <span class="price"><span class="visually-hidden">Now </span>$89</span></td>
+                  <td><s class="price-was" data-offer="on"><span class="visually-hidden">Regular price </span>$99</s> <span class="price" data-offer="on"><span class="visually-hidden">Now </span>$89</span><span class="price" data-offer="off">$99</span></td>
                 </tr>
                 <tr>
                   <th scope="row"><span class="price-table__meter" style="--step: 6" aria-hidden="true"></span>26&ndash;30 miles</th>
-                  <td><s class="price-was"><span class="visually-hidden">Regular price </span>$109</s> <span class="price"><span class="visually-hidden">Now </span>$98</span></td>
+                  <td><s class="price-was" data-offer="on"><span class="visually-hidden">Regular price </span>$109</s> <span class="price" data-offer="on"><span class="visually-hidden">Now </span>$98</span><span class="price" data-offer="off">$109</span></td>
                 </tr>
                 <tr class="price-table__quote">
                   <th scope="row"><span class="price-table__meter" style="--step: 7" aria-hidden="true"></span>30+ miles</th>
@@ -512,7 +528,7 @@
           <div class="pricing__side">
             <p class="soon-pill" data-when="prelaunch"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg> Prices apply from November 1st, 2026</p>
             <ul class="ticks" role="list">
-              <li><span class="sym sym--plus"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span> 10% off every price until December 31st, 2026: regular prices are shown crossed out</li>
+              <li data-offer="on"><span class="sym sym--plus"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span> 10% off every price until December 31st, 2026: regular prices are shown crossed out</li>
               <li><span class="sym sym--plus"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span> Distance is measured from Jumper Jim's home base in Tracy</li>
               <li><span class="sym sym--plus"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span> Your exact price is confirmed before dispatch</li>
               <li><span class="sym sym--plus"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span> We currently serve Tracy, CA only</li>
@@ -760,7 +776,8 @@
         <div class="final-cta__copy">
           <p class="soon-pill soon-pill--dark" data-when="prelaunch"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg> Opening November 1st, 2026</p>
           <h2 class="final-cta__title display" id="final-title">Need a Jump? <span>Call Jumper Jim.</span></h2>
-          <p class="final-cta__lede" data-when="live">Mobile 12V jump starts from $53, 10% off until December 31st, 2026, with your upfront price confirmed before dispatch.</p>
+          <p class="final-cta__lede" data-when="live" data-offer="on">Mobile 12V jump starts from $53, 10% off until December 31st, 2026, with your upfront price confirmed before dispatch.</p>
+          <p class="final-cta__lede" data-when="live" data-offer="off">Mobile 12V jump starts from $59, with your upfront price confirmed before dispatch.</p>
           <p class="final-cta__lede" data-when="prelaunch">Starting November 1st, 2026: mobile 12V jump starts from $53, 10% off until December 31st, 2026, with your upfront price confirmed before dispatch. Save our number now so it's ready when you need it.</p>
           <div class="btn-row" data-when="prelaunch">
             <a class="btn btn--call btn--xl" href="jumper-jim.vcf">

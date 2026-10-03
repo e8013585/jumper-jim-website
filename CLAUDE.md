@@ -21,6 +21,7 @@ python -m http.server 8321
 
 Open http://localhost:8321 (serve over HTTP, not `file://`). Add `?preview=live` or
 `?preview=prelaunch` to see either launch state. The launch moment is `data-launch` on `<html>`.
+Add `?offer=ended` to see prices after the 10% offer ends (`data-offer-end` on `<html>`).
 
 ## Publishing
 
@@ -39,9 +40,10 @@ Open http://localhost:8321 (serve over HTTP, not `file://`). Add `?preview=live`
 - **Opening date:** written as "November 1st, 2026" in full text (short labels use "Nov 1st").
 - **Prices:** shown as whole dollars with no cents. A limited-time 10% discount runs until
   December 31st, 2026: regular prices ($59–$109) are shown crossed out next to discounted prices
-  ($53–$98, rounded down). Nothing switches back automatically. If prices change or the discount
-  ends, update the Pricing table, every "from $53" / "10% off" / "December 31st" mention, the hero
-  price star and its "10% off" sticker, and `minPrice` / `validThrough` in the JSON-LD structured data.
+  ($53–$98, rounded down). The site switches back to regular prices on its own at `data-offer-end`
+  (Jan 1st, 2027, Pacific): discounted copy is marked `data-offer="on"` and its regular-price twin
+  `data-offer="off"`; preview with `?offer=ended`. Keep both twins in sync when prices change, plus
+  the two `priceSpecification` entries in the JSON-LD and the meta / og descriptions (which don't switch).
 - **Pre-launch content:** elements marked `data-when="prelaunch"` / `data-when="live"` are toggled by
   `js/main.js`; update both variants when changing shared copy.
 - **Line endings:** `css/styles.css` and `js/main.js` are stored with CRLF; `*.vcf` must keep CRLF.
