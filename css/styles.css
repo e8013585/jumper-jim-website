@@ -842,6 +842,7 @@ html.offer-ended [data-offer="on"] { display: none !important; }
 }
 .vehicle__art { width: 118px; flex: none; }
 .vehicle__name { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+.vehicle__name .lowercase { text-transform: none; }
 
 .vehicle__road { stroke: var(--black); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 10 8; fill: none; }
 .vehicle__body { stroke: var(--black); stroke-width: 3.2; stroke-linejoin: round; }
