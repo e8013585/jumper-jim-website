@@ -144,7 +144,7 @@ python scripts/optimize-images.py
 
 ## Things to confirm before launch
 
-- **Service area and pricing.** The site says Jumper Jim serves Tracy, CA only, and shows the distance-based
+- **Service area and pricing.** The site says Jumper Jim serves Tracy and Manteca, CA, and shows the distance-based
   price table (from $53 for 0–5 miles, measured from the home base). A **10% discount** runs until
   **December 31st, 2026**: the table shows each regular price crossed out ($59, $69, $79, $89, $99, $109)
   next to the discounted price ($53, $62, $71, $80, $89, $98, rounded down to whole dollars). At

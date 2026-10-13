@@ -971,6 +971,7 @@ html.offer-ended [data-offer="on"] { display: none !important; }
   fill: var(--black);
   letter-spacing: 0.02em;
 }
+.map__label--small text { font-size: 15px; letter-spacing: 0; }
 .area__stamp {
   position: absolute;
   right: 4%;

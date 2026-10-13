@@ -37,6 +37,8 @@ Add `?offer=ended` to see prices after the 10% offer ends (`data-offer-end` on `
   data, `robots.txt`, `sitemap.xml`). `calljumperjim.com` is only a 301 redirect and must never appear
   in the site's code.
 - **Paths:** keep asset links relative (no leading `/`) so the site also works from a subfolder.
+- **Service area:** Tracy and Manteca, California, presented as the cities served (never as an
+  expansion). Jumper Jim's home base, address and distance pricing stay in Tracy.
 - **Opening date:** written as "November 1st, 2026" in full text (short labels use "Nov 1st").
 - **Prices:** shown as whole dollars with no cents. A limited-time 10% discount runs until
   December 31st, 2026: regular prices ($59–$109) are shown crossed out next to discounted prices
