@@ -23,32 +23,9 @@ or ordinary shared hosting).
 | `scripts/optimize-images.py` | Regenerates `images/`, the favicons and the share image from `assets/` |
 | `favicon.ico`, `favicon-32x32.png`, `apple-touch-icon.png`, `icon-*.png`, `site.webmanifest` | Browser and home-screen icons |
 | `robots.txt`, `sitemap.xml` | Search engine files |
-| `jumper-jim.vcf` | Contact card behind the Save Our Number buttons |
+| `jumper-jim.vcf` | Downloadable contact card (not currently linked from the site) |
 
 `Task.txt` and `.claude/` are project notes and local tooling. You don't need to upload them.
-
-## Opening day (pre-launch mode)
-
-Until **November 1st, 2026 at 12:00 AM Pacific**, the site runs in pre-launch mode:
-
-- A red banner at the top says the business opens November 1st, 2026 and isn't in service yet, with a
-  live "opening in N days" countdown.
-- "Call Now" and "Request a Jump Start" buttons are replaced by **Save Our Number** (downloads
-  `jumper-jim.vcf`, a contact card phones can add straight to Contacts) and **Email a Question**.
-- The request form is replaced by a "Requests open November 1st, 2026" card.
-- Your phone number and email still appear as plain contact details in the contact list and footer.
-
-At the opening moment the site switches to the full live version **by itself**. No edit or redeploy is
-needed. The switch uses each visitor's device clock.
-
-- **Preview the live version now:** add `?preview=live` to the URL (e.g. `http://localhost:8321/?preview=live`).
-- **Preview pre-launch after opening day:** add `?preview=prelaunch`.
-- **Preview prices after the 10% offer ends:** add `?offer=ended` (combine with `&preview=live`).
-- **Change the opening date:** edit `data-launch` on the `<html>` tag at the top of `index.html`.
-- **After launch (optional cleanup):** remove "Opening November 1st, 2026:" from the meta description and
-  `og:description` in `index.html`, which search engines and link previews show.
-- Visitors with JavaScript turned off always see the pre-launch version, so plan to remove the
-  pre-launch elements (anything marked `data-when="prelaunch"`) some time after opening.
 
 ## Publishing
 
@@ -142,7 +119,7 @@ pip install pillow
 python scripts/optimize-images.py
 ```
 
-## Things to confirm before launch
+## Things to confirm
 
 - **Service area and pricing.** The site says Jumper Jim serves Tracy and Manteca, CA, and shows the distance-based
   price table (from $53 for 0–5 miles, measured from the home base). A **10% discount** runs until
