@@ -16,7 +16,7 @@ or ordinary shared hosting).
 | `index.html` | The homepage: hero, how it works, vehicles, services, service area, why us, request form, footer |
 | `404.html` | "Page not found" page (most static hosts pick this up automatically) |
 | `css/styles.css` | All styles. Brand colors and spacing are CSS variables at the top of the file |
-| `js/main.js` | Mobile menu, sticky call bar behavior, and the Request a Jump Start form |
+| `js/main.js` | Mobile menu, sticky call bar behavior, the price estimator and the Request a Jump Start form |
 | `images/` | Web-optimized logo and mascot images (WebP plus PNG fallbacks) and the social share image |
 | `fonts/` | Self-hosted Archivo and Permanent Marker fonts (SIL Open Font License) |
 | `assets/` | The **original** brand artwork. Keep these; the optimized images are generated from them |
@@ -26,6 +26,24 @@ or ordinary shared hosting).
 | `jumper-jim.vcf` | Downloadable contact card (not currently linked from the site) |
 
 `Task.txt` and `.claude/` are project notes and local tooling. You don't need to upload them.
+
+## Price estimator
+
+The Pricing section has an **Estimate Your Price** box. A visitor types where their vehicle is (or taps
+**Use my current location**) and sees the distance from Jumper Jim's home base and the matching price.
+
+- **Home base:** stored only as rounded map coordinates (`HOME_BASE` near the top of the estimator code in
+  `js/main.js`, accurate to about 100 m). The street address isn't on the site or in this repository.
+- **Driving distance** comes from the free public [OSRM](https://project-osrm.org/) route server. If it
+  can't be reached, the estimator falls back to the straight-line distance and warns the visitor to call
+  for an accurate quote.
+- **Address lookup** uses OpenStreetMap's free [Nominatim](https://nominatim.org/) service, with
+  [Photon](https://photon.komoot.io/) as a backup, limited to the area around Tracy and Manteca. These
+  free services are fine for a small site but have no uptime guarantee.
+- **Prices** are read from the price table itself: each row's `data-miles` is the top of its distance
+  band (5, 10, … 30). Distances are rounded to the nearest mile, and anything over 30 miles asks the
+  visitor to call. Locations outside Tracy and Manteca get a note that we only serve those two cities.
+- Without JavaScript the estimator stays hidden and the price table works as before.
 
 ## Publishing
 

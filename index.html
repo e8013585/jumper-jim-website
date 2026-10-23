@@ -456,27 +456,27 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="price-table__first">
+                <tr class="price-table__first" data-miles="5">
                   <th scope="row"><span class="price-table__meter" style="--step: 1" aria-hidden="true"></span>0&ndash;5 miles</th>
                   <td><s class="price-was" data-offer="on"><span class="visually-hidden">Regular price </span>$59</s> <span class="price" data-offer="on"><span class="visually-hidden">Now </span>$53</span><span class="price" data-offer="off">$59</span></td>
                 </tr>
-                <tr>
+                <tr data-miles="10">
                   <th scope="row"><span class="price-table__meter" style="--step: 2" aria-hidden="true"></span>6&ndash;10 miles</th>
                   <td><s class="price-was" data-offer="on"><span class="visually-hidden">Regular price </span>$69</s> <span class="price" data-offer="on"><span class="visually-hidden">Now </span>$62</span><span class="price" data-offer="off">$69</span></td>
                 </tr>
-                <tr>
+                <tr data-miles="15">
                   <th scope="row"><span class="price-table__meter" style="--step: 3" aria-hidden="true"></span>11&ndash;15 miles</th>
                   <td><s class="price-was" data-offer="on"><span class="visually-hidden">Regular price </span>$79</s> <span class="price" data-offer="on"><span class="visually-hidden">Now </span>$71</span><span class="price" data-offer="off">$79</span></td>
                 </tr>
-                <tr>
+                <tr data-miles="20">
                   <th scope="row"><span class="price-table__meter" style="--step: 4" aria-hidden="true"></span>16&ndash;20 miles</th>
                   <td><s class="price-was" data-offer="on"><span class="visually-hidden">Regular price </span>$89</s> <span class="price" data-offer="on"><span class="visually-hidden">Now </span>$80</span><span class="price" data-offer="off">$89</span></td>
                 </tr>
-                <tr>
+                <tr data-miles="25">
                   <th scope="row"><span class="price-table__meter" style="--step: 5" aria-hidden="true"></span>21&ndash;25 miles</th>
                   <td><s class="price-was" data-offer="on"><span class="visually-hidden">Regular price </span>$99</s> <span class="price" data-offer="on"><span class="visually-hidden">Now </span>$89</span><span class="price" data-offer="off">$99</span></td>
                 </tr>
-                <tr>
+                <tr data-miles="30">
                   <th scope="row"><span class="price-table__meter" style="--step: 6" aria-hidden="true"></span>26&ndash;30 miles</th>
                   <td><s class="price-was" data-offer="on"><span class="visually-hidden">Regular price </span>$109</s> <span class="price" data-offer="on"><span class="visually-hidden">Now </span>$98</span><span class="price" data-offer="off">$109</span></td>
                 </tr>
@@ -506,6 +506,43 @@
               </a>
             </div>
           </div>
+        </div>
+
+        <!-- Price estimator: shown by js/main.js (needs JavaScript and a network connection) -->
+        <div class="estimator panel" id="estimate" hidden>
+          <div class="estimator__head">
+            <h3 class="estimator__title display">Estimate Your Price</h3>
+            <p>Tell us where your vehicle is and we'll estimate the driving distance from Jumper Jim and your price.</p>
+          </div>
+          <form class="estimator__form" id="estimator-form" novalidate>
+            <label class="field__label" for="est-address">Where is your vehicle?</label>
+            <div class="estimator__row">
+              <input class="field__input" type="text" id="est-address" name="address" autocomplete="street-address" placeholder="Street address and city, or a ZIP code" aria-describedby="est-status">
+              <button class="btn btn--call" type="submit">
+                <svg class="icon" aria-hidden="true"><use href="#i-tag"/></svg>
+                Estimate
+              </button>
+            </div>
+            <button class="btn btn--white btn--sm locate-btn" type="button" id="est-locate" hidden>
+              <svg class="icon" aria-hidden="true"><use href="#i-locate"/></svg>
+              Use my current location
+            </button>
+          </form>
+          <p class="estimator__status" id="est-status" role="status" aria-live="polite"></p>
+
+          <div class="estimator__result" id="est-result" hidden>
+            <p class="estimator__distance" data-est="distance"></p>
+            <p class="estimator__price" data-est="price-line">
+              <span class="estimator__price-label">Estimated price</span>
+              <span><s class="price-was" data-est="was"></s> <span class="price" data-est="price"></span></span>
+            </p>
+            <p class="estimator__note estimator__note--warn" data-est="crow" hidden><strong>This is only an estimate.</strong> We couldn't get driving directions right now, so this uses the straight-line distance ("as the crow flies"). The drive is usually longer, so your price may be higher. Please call <a href="tel:+12092219788">(209)&nbsp;221-9788</a> for an accurate quote.</p>
+            <p class="estimator__note estimator__note--warn" data-est="far" hidden>That's more than 30 miles from Jumper Jim, so please call <a href="tel:+12092219788">(209)&nbsp;221-9788</a> for a quote.</p>
+            <p class="estimator__note estimator__note--warn" data-est="outside" hidden>This location looks like it's outside Tracy and Manteca. We only serve those two cities, so please call <a href="tel:+12092219788">(209)&nbsp;221-9788</a> to check before you need us.</p>
+            <p class="estimator__note" data-est="road">Estimates use the driving distance, rounded to the nearest mile. Your exact price is confirmed before dispatch: call <a href="tel:+12092219788">(209)&nbsp;221-9788</a> for a quote.</p>
+          </div>
+
+          <p class="estimator__privacy">Your location is only used for this estimate and isn't saved by Jumper Jim. To work out the distance, it's sent to free map services built on <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> (map data &copy; OpenStreetMap contributors).</p>
         </div>
       </div>
     </section>

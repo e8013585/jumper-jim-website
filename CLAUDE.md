@@ -9,7 +9,7 @@ Plain HTML, CSS and one JavaScript file: no build step, no framework, no depende
 
 - `index.html` – the whole homepage; `404.html` – not-found page
 - `css/styles.css` – all styles (brand colors and spacing are CSS variables at the top)
-- `js/main.js` – mobile menu, sticky call bar, request form
+- `js/main.js` – mobile menu, sticky call bar, price estimator, request form
 - `images/`, favicons and share image are generated from `assets/` by `scripts/optimize-images.py`
   (`pip install pillow`, then `python scripts/optimize-images.py`). Never edit or delete `assets/`.
 
@@ -44,5 +44,8 @@ Add `?offer=ended` to see prices after the 10% offer ends (`data-offer-end` on `
   (Jan 1st, 2027, Pacific): discounted copy is marked `data-offer="on"` and its regular-price twin
   `data-offer="off"`; preview with `?offer=ended`. Keep both twins in sync when prices change, plus
   the two `priceSpecification` entries in the JSON-LD and the meta / og descriptions (which don't switch).
+- **Price estimator:** the home base is only rounded coordinates (`HOME_BASE` in `js/main.js`). Never put
+  Jumper Jim's street address in the site, the repo or commit messages. The estimator reads prices from the
+  price table, so price-table rows need their `data-miles` (top of each distance band).
 - **Line endings:** `css/styles.css` and `js/main.js` are stored with CRLF; `*.vcf` must keep CRLF.
   Avoid tools that silently rewrite line endings.
